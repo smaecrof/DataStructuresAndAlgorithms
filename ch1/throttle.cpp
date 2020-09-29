@@ -16,13 +16,13 @@ public:
 	Throttle();
 	Throttle(int size); 	
 	// MODIFICATION METHODS 
-	void shut_off();
+	void shut_off() { current_position = 0;}
 	void shift(int amount);
 	//CONSTANT METHODS 
-	double flow() const; 
-	bool is_on() const; 
-	bool is_Over_Half_Throttle() const; 
-	int number_gears() const;
+	double flow() const { return current_position / double(top_position);} 
+	bool is_on() const { return (current_position > 0);}
+	bool is_Over_Half_Throttle() const { return (current_position > (top_position/2));}
+	int number_gears() const { return top_position;}
 private:
 	int current_position; 
 	int top_position; 
@@ -68,13 +68,6 @@ Throttle::Throttle(int size)
 	current_position = 0; 
 }	
 
-void Throttle::shut_off()
-// Precondition: None
-// PostCondition: The throttle will be turned off
-{
-	current_position = 0; 
-}
-
 void Throttle::shift(int amount)
 // Precondition: shut_off() has been called at least once to initialize the throttle
 // PostCondition: The throttle's position has been moved by amount (but not below or 
@@ -86,34 +79,4 @@ void Throttle::shift(int amount)
 		current_position = 0;
 	else if (current_position > top_position)
 		current_position = top_position; 
-}
-
-double Throttle::flow() const
-// Precondition: shut_off() has been called at least once to initialize the throttle
-// PostCondition: The value returned is the current flow as a proportion of the maximum flow
-{
-	return current_position / double(top_position); 
-}
-
-bool Throttle::is_on() const 
-// Precondition: shut_off() has been called at least once to initialize the throttle 
-// PostCondition: If the throttle's position is > 0, then the function will return true; 
-// otherwise, it will return false 
-{
-	return (current_position > 0); 
-}
-
-int Throttle::number_gears() const 
-// Precondition: None.
-// PostCondition: Returns the number of gears (top_position) of an object
-{
-	return top_position; 
-}
-
-bool Throttle::is_Over_Half_Throttle() const
-// Precondition: shut_off() has been called at least once to initialize the throttle 
-// PostCondition: If the throttle's throttle_position is over 3, then the function will return 
-// true; otherwise, it will return false; 
-{
-	return (current_position > (top_position / 2)); 
 }
