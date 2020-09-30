@@ -1,5 +1,5 @@
 // FILE: throttle.h
-// CLASS PROVIDED: throttle (part of the namespace s_mae_croft
+// CLASS PROVIDED: throttle (part of the namespace s_mae_croft_2A)
 //
 // CONSTRUCTORS for the throttle class 
 // 	throttle() 
