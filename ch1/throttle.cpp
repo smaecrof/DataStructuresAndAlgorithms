@@ -21,8 +21,8 @@ public:
 	//CONSTANT METHODS 
 	double flow() const { return current_position / double(top_position);} 
 	bool is_on() const { return (current_position > 0);}
-	bool is_Over_Half_Throttle() const { return (current_position > (top_position/2));}
-	int number_gears() const { return top_position;}
+	bool is_half_throttle() const { return (current_position > (top_position/2));}
+	int get_top_position() const { return top_position;}
 private:
 	int current_position; 
 	int top_position; 
