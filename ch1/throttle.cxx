@@ -3,6 +3,7 @@
 
 #include <cassert>
 #include "throttle.h"
+using namespace std; 
 
 namespace s_mae_croft_2A
 {
