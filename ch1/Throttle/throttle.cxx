@@ -7,12 +7,6 @@
 
 namespace s_mae_croft_2A
 {
-	throttle::throttle()
-	{ // A simple on-off throttle
-		top_position = 1;
-		current_position = 0;
-	}
-
 	throttle::throttle(int size)
 	{  // Library facilities used: cassert
 		assert(size > 0);

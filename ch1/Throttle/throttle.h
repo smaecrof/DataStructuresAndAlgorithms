@@ -2,11 +2,7 @@
 // CLASS PROVIDED: throttle (part of the namespace s_mae_croft_2A)
 //
 // CONSTRUCTORS for the throttle class 
-// 	throttle() 
-// 	PostCondition: The throttle has one position above the shut_off() position, and it is 
-// 	currently shut off
-//
-// 	throttle(int size):
+// 	throttle(int size = 0):
 // 	Precondition: size > 0
 // 	PostCondition: The throttle has size positions above the shut_off position (0), and it 
 // 	is currently shut off 
@@ -48,8 +44,7 @@ namespace s_mae_croft_2A
 	{
 	public:
 		// CONSTRUCTORS	
-		throttle();
-		throttle(int size);
+		throttle(int size = 1);
 		// MODIFICATION MEMBER FUNCTIONS
 		void shut_off() { current_position = 0; }
 		void shift(int amount);
